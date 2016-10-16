@@ -7,4 +7,4 @@ CREATE TABLE customers(
 );
 
 INSERT INTO customers ( id, first_name, last_name, email ) VALUES ( uuid(), 'Donald', 'Trump', 'boss@yourefired.com' );
-INSERT INTO customers ( id, first_name, last_name, email ) VALUES ( uuid(), 'Hillary', 'Clinton', 'boss@private-email-server.com' );
+INSERT INTO customers ( id, first_name, last_name, email ) VALUES ( uuid(), 'Hillary', 'Clinton', 'top_secret_incoming@clinton-foundation.org' );

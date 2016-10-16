@@ -5,7 +5,8 @@ end
 
 # Configure the MySQL service.
 mysql_service 'default' do
-  initial_root_password node['awesome_customers_database']['database']['root_password']
+  initial_root_password node['awesome_customers_ubuntu']['database']['root_password']
+  bind_address '0.0.0.0'
   port '3306'
   action [:create, :start]
 end
@@ -16,25 +17,25 @@ mysql2_chef_gem 'default' do
 end
 
 # Create the database instance.
-mysql_database node['awesome_customers_database']['database']['dbname'] do
+mysql_database node['awesome_customers_ubuntu']['database']['dbname'] do
   connection(
-    :host => node['awesome_customers_database']['database']['host'],
-    :username => node['awesome_customers_database']['database']['root_username'],
-    :password => node['awesome_customers_database']['database']['root_password']
+    :host => node['awesome_customers_ubuntu']['database']['host'],
+    :username => node['awesome_customers_ubuntu']['database']['root_username'],
+    :password => node['awesome_customers_ubuntu']['database']['root_password']
   )
   action :create
 end
 
 # Add a database user.
-mysql_database_user node['awesome_customers_database']['database']['admin_username'] do
+mysql_database_user node['awesome_customers_ubuntu']['database']['admin_username'] do
   connection(
-    :host => node['awesome_customers_database']['database']['host'],
-    :username => node['awesome_customers_database']['database']['root_username'],
-    :password => node['awesome_customers_database']['database']['root_password']
+    :host => node['awesome_customers_ubuntu']['database']['host'],
+    :username => node['awesome_customers_ubuntu']['database']['root_username'],
+    :password => node['awesome_customers_ubuntu']['database']['root_password']
   )
-  password node['awesome_customers_database']['database']['admin_password']
-  database_name node['awesome_customers_database']['database']['dbname']
-  host node['awesome_customers_database']['database']['host']
+  password node['awesome_customers_ubuntu']['database']['admin_password']
+  database_name node['awesome_customers_ubuntu']['database']['dbname']
+  host '%'
   action [:create, :grant]
 end
 
@@ -50,7 +51,7 @@ cookbook_file create_tables_script_path do
 end
 
 # Seed the database with a table and test data.
-execute "initialize #{node['awesome_customers_database']['database']['dbname']} database" do
-  command "mysql -h #{node['awesome_customers_database']['database']['host']} -u #{node['awesome_customers_database']['database']['admin_username']} -p#{node['awesome_customers_database']['database']['admin_password']} -D #{node['awesome_customers_database']['database']['dbname']} < #{create_tables_script_path}"
-  not_if  "mysql -h #{node['awesome_customers_database']['database']['host']} -u #{node['awesome_customers_database']['database']['admin_username']} -p#{node['awesome_customers_database']['database']['admin_password']} -D #{node['awesome_customers_database']['database']['dbname']} -e 'describe customers;'"
+execute "initialize #{node['awesome_customers_ubuntu']['database']['dbname']} database" do
+  command "mysql -h #{node['awesome_customers_ubuntu']['database']['host']} -u #{node['awesome_customers_ubuntu']['database']['admin_username']} -p#{node['awesome_customers_ubuntu']['database']['admin_password']} -D #{node['awesome_customers_ubuntu']['database']['dbname']} < #{create_tables_script_path}"
+  not_if  "mysql -h #{node['awesome_customers_ubuntu']['database']['host']} -u #{node['awesome_customers_ubuntu']['database']['admin_username']} -p#{node['awesome_customers_ubuntu']['database']['admin_password']} -D #{node['awesome_customers_ubuntu']['database']['dbname']} -e 'describe customers;'"
 end

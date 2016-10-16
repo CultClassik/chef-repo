@@ -4,13 +4,16 @@
 
   DocumentRoot <%= node['awesome_customers_ubuntu']['document_root'] %>
   <Directory "/">
+          Satisfy Any
+          Allow from all
           Options FollowSymLinks
           AllowOverride None
   </Directory>
   <Directory <%= node['awesome_customers_ubuntu']['document_root'] %> >
           Options Indexes FollowSymLinks MultiViews
+          Satisfy Any
+          Allow from all
           AllowOverride None
-          Require all granted
   </Directory>
 
   ErrorLog /var/log/apache2/error.log

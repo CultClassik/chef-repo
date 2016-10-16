@@ -1,1 +1,2 @@
-include_recipe 'awesome_customers_ubuntu::database'
+include_recipe 'apt::default'
+include_recipe 'awesome_customers_database::database'

@@ -1,0 +1,26 @@
+---
+driver:
+  name: 'hyperv'
+  vm_hostname: 'cthulhu'
+  parent_vhd_folder: '\\cthulhu\V$\Templates\'
+  parent_vhd_name: 'Windows_2012_Server.vhdx'
+  vm_switch: 'ExternalSwitch'
+  network:
+    - ["public_network", {bridge: 'Public_vSwitch'}]
+  memory_startup_bytes: 1GB
+
+provisioner:
+  name: chef_zero
+
+transport:
+  username: vagrant
+  password: vagrant
+
+platforms:
+  - name: windows-2012r2
+
+suites:
+  - name: default
+    run_list:
+      - recipe[settings_windows::default]
+    attributes:

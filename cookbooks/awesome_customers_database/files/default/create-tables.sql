@@ -6,5 +6,6 @@ CREATE TABLE customers(
   email VARCHAR(64)
 );
 
-INSERT INTO customers ( id, first_name, last_name, email ) VALUES ( uuid(), 'Donald', 'Trump', 'boss@yourefired.com' );
-INSERT INTO customers ( id, first_name, last_name, email ) VALUES ( uuid(), 'Hillary', 'Clinton', 'top_secret_incoming@clinton-foundation.org' );
+INSERT INTO customers ( id, first_name, last_name, email ) VALUES ( uuid(), 'Donald', 'Trump', 'boss@yourefired.gov' );
+INSERT INTO customers ( id, first_name, last_name, email ) VALUES ( uuid(), 'Hillary', 'Clinton', 'hackme@topsecret.clintonfoundation.org' );
+INSERT INTO customers ( id, first_name, last_name, email ) VALUES ( uuid(), 'Vladimir', 'Putin', 'president@again.ru' );

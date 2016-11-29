@@ -1,4 +1,10 @@
-# Install Apache and start the service.
+# Install Apache and start the service on RHEL/CentOS or Debian/Ubuntu
+if node['platform_family'] == "rhel"
+  package = 'httpd'
+elseif node['platform_family'] == "debian"
+  package = 'apache2'
+end
+
 httpd_service 'customers' do
   mpm 'prefork'
   action [:create, :start]

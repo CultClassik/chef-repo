@@ -1,0 +1,5 @@
+{
+  "id"       : "media_rw",
+  "comment"  : "RW access to media resources",
+  "gid"      : ["1005"]
+}

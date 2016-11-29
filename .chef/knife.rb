@@ -7,3 +7,4 @@ node_name                "chris"
 client_key               "#{current_dir}/chris.pem"
 chef_server_url          "https://chef.diehlabs.lan/organizations/diehlabs"
 cookbook_path            ["#{current_dir}/../cookbooks"]
+knife[:editor] = '"C:\Program Files (x86)\Notepad++\notepad++.exe" -nosession -multiInst'

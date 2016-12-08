@@ -1,9 +1,7 @@
 {
   "id"       : "chris",
   "comment"  : "Owner-Operator",
-  "home"     : "/home/chris",
-  "groups"   : ["wheel", "users", "media_rw"],
-  "uid"      : "900",
+  "uid"      : "3000",
   "shell"    : "\/bin\/bash",
   "ssh_keys" : [
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIyrC6/OExZ9IgXd7ikvAuNgZ28KbBB4wCSDehmMvrjm6634jEtBfeAAWxPTSXaojgMxGvQM6q3VXa+BpUSTnh9lnL1opobvEObqegAO7YnyO01UL4tLoGIq4Zpw5WOINLc6b2NmMSLUzW/7fbR+Z1bjB5X0p05dzs4dJrtpv7gyeJk0Ep0opI5ChP8zPJ+8U3DO8KiwWRErG/wdoxse370gdU/cIXBA+u1WHybJU3cxpySoKDb20KllVSm4JCktLVUwQN86miNU9Lnz4QPPGMbxdJe/32HWDJAuechqntSKyDdCoECPo9won7z9hF2pTjIIS9nOkFAwMVNXvr59r5 chris@CTHULHU"

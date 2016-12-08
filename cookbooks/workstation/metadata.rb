@@ -1,18 +1,11 @@
 name 'workstation'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Chris Diehl'
+maintainer_email 'chris@diehlabs.com'
 license 'all_rights'
 description 'Installs/Configures workstation'
-long_description 'Installs/Configures workstation'
-version '0.1.13'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version '0.1.14'
 
 depends 'windows', '~> 1.38'
 depends 'chocolatey', '~> 1.0.3'
-
-# If you upload to Supermarket you should set this so your cookbook
-# gets a `View Issues` link
-# issues_url 'https://github.com/<insert_org_here>/workstation/issues' if respond_to?(:issues_url)
-
-# If you upload to Supermarket you should set this so your cookbook
-# gets a `View Source` link
-# source_url 'https://github.com/<insert_org_here>/workstation' if respond_to?(:source_url)
+depends 'chocolatey-ohai-plugin', '~> 0.1.0'

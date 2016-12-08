@@ -1,0 +1,6 @@
+{
+  "id"       : "vagrant",
+  "comment"  : "I'm a ghost.",
+  "uid"      : "1000",
+  "shell"    : "\/bin\/bash",
+}

@@ -1,0 +1,17 @@
+{
+  "name": "dev",
+  "default_attributes": {
+    "apache2": {
+      "listen_ports": [
+        "80",
+        "443"
+      ]
+    }
+  },
+  "json_class": "Chef::Environment",
+    "description": "",
+    "cookbook_versions": {
+    "linux_server": ">= 0.1.4"
+    },
+  "chef_type": "environment"
+}

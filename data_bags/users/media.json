@@ -1,7 +1,7 @@
 {
   "id"       : "media",
   "comment"  : "IoT Identity",
-  "home"     : "/home/media",
-  "groups"   : ["media_rw"],
-  "uid"      : "1005"
+  "uid"      : "3005",
+  "shell"    : "\/bin\/bash",
+  "ssh_keys" : []
 }

@@ -7,10 +7,10 @@
 #if node['platform_family'] == "rhel"
   #package = 'httpd'
   #include_recipe[yum::epel]
-#elseif node['platform_family'] == "debian"
-  #package = 'apache2'
-  #include_recipe[apt::default]
-#end
+
+if node['platform_family'] == "debian"
+  include_recipe 'apt'
+end
 
 nodeName = node["fqdn"]
 vHostDir = '/etc/nginx/conf.d/'

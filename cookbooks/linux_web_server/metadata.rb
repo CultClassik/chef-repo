@@ -8,3 +8,4 @@ version '0.1.34'
 
 depends 'yum', '~> 4.1.0'
 depends 'firewall', '~> 2.4'
+depends 'php', '~> 2.1.1'

@@ -2,7 +2,8 @@
 # Cookbook Name:: linux_web_server
 # Receipe:: nginx
 #
-include_recipe 'linux_web_server::firewall'
+
+#include_recipe 'linux_web_server::firewall'
 
 # Install Apache and start the service on RHEL/CentOS or Debian/Ubuntu
 #if node['platform_family'] == "rhel"

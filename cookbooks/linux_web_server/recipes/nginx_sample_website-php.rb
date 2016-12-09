@@ -1,11 +1,13 @@
 #
 # Cookbook Name:: linux_web_server
-# Receipe:: nginx_sample_website
+# Receipe:: nginx_sample_website-php
 #
-# This receipe will create two sample websites on the nginx server.
+# This receipe will create two sample PHP websites on the nginx server.
 # Use this receipe as a template for deploying actual websites.
 
-include_recipe 'linux_web_server::nginx'
+# When deploying an actual website be sure to add a section to install php modules as required
+
+include_recipe 'linux_web_server::nginx_php'
 
 nodeName = node["fqdn"]
 
@@ -20,14 +22,14 @@ node["webserver"]["sites"].each do |siteName, siteParams|
   end
 
   # create a sample index page for the site
-  file "#{documentRoot}/index.html" do
+  file "#{documentRoot}/index.php" do
     mode '0755'
-    content "<html>Welcome to website <b>#{siteName}</b> running on <b>#{nodeName}</b></html>"
+    content "<html>Welcome to website <b>#{siteName}</b> running on <b>#{nodeName}</b></html><?php phpinfo() ?>"
   end
 
   # create the vhost config for the site
   template "/etc/nginx/conf.d/#{siteName}.conf" do
-    source "nginx_vhost.conf.erb"
+    source "nginx_vhost.conf_php.erb"
     mode "0644"
     variables(
       :siteName => siteName,

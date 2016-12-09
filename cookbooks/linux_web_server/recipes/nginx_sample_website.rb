@@ -2,6 +2,10 @@
 # Cookbook Name:: linux_web_server
 # Receipe:: nginx_sample_website
 #
+# This receipe will create two sample websites on the nginx server.
+# Use this receipe as a template for deploying actual websites.
+
+include_recipe 'linux_web_server::nginx'
 
 nodeName = node["fqdn"]
 

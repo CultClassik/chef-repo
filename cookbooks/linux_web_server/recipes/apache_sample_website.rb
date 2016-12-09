@@ -1,3 +1,8 @@
+#
+# Cookbook Name:: linux_web_server
+# Receipe:: apache_sample_website
+#
+
 include_recipe 'awesome_customers_ubuntu::firewall'
 include_recipe 'awesome_customers_ubuntu::web_user'
 include_recipe 'awesome_customers_ubuntu::web'

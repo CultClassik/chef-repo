@@ -12,10 +12,6 @@
   #include_recipe[apt::default]
 #end
 
-#yum_repository '*' do
-#  action :makecache
-#end
-
 nodeName = node["fqdn"]
 vHostDir = '/etc/nginx/conf.d/'
 
@@ -64,12 +60,8 @@ node["webserver"]["sites"].each do |siteName, siteParams|
       :port => node["webserver"]["sites"][siteName]["port"],
       :documentRoot => documentRoot
     )
+    # restart nginx
     notifies :restart, "service[nginx]"
   end
-  # restart nginx
 
 end
-
-
-#template '' do
-#end

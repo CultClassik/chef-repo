@@ -1,4 +1,9 @@
+include_recipe 'awesome_customers_ubuntu::firewall'
+include_recipe 'awesome_customers_ubuntu::web_user'
+include_recipe 'awesome_customers_ubuntu::web'
+
 # Install Apache and start the service on RHEL/CentOS or Debian/Ubuntu
+
 if node['platform_family'] == "rhel"
   package = 'httpd'
 elseif node['platform_family'] == "debian"

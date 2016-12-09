@@ -3,14 +3,14 @@
 #
 # Chris Diehl
 
+#if node["platform"] == "ubuntu" do
+#  include_recipe 'apt::default'
 
-include_recipe 'apt::default'
+#end
 
-if node["platform"] == "ubuntu"
-  execute "apt-get update -y"
-  end
-end
+#if node["platform"] == "rhel" do
+#  include_recipe 'yum::epel'
 
-include_recipe 'awesome_customers_ubuntu::firewall'
-include_recipe 'awesome_customers_ubuntu::web_user'
-include_recipe 'awesome_customers_ubuntu::web'
+#end
+
+#include_recipe 'linux_server::default'

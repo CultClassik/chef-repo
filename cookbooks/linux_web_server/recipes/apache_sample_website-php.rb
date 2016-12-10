@@ -16,7 +16,7 @@ node["webserver"]["sites"].each do |siteName, siteParams|
   php_fpm_pool siteName do
     listen "/var/run/php5-fpm-#{siteName}.sock"
     #listen "127.0.0.1:#{fcgiPort}"
-    # change the user and group for better separation
+    #  change the user and group for better separation
     #user "myWebUser"
     #group "myWebGroup"
     action :install

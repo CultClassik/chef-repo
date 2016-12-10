@@ -13,7 +13,7 @@ default["webserver"]["sites"]["testSite"] = {
 }
 
 default["webserver"]["settings"]["apache"]["modules"] = [
-  "proxy", "proxy_fcgi", "rewrite"
+  "proxy", "proxy_fcgi", "authz_core", "authn_core", "dir", "rewrite"
 ]
 
 default["webserver"]["settings"]["php"]["modules"] = [

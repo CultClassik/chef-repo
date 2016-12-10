@@ -12,7 +12,9 @@
 #  package = 'apache2'
 #end
 
-# Install Apache and start the service on RHEL/CentOS or Debian/Ubuntu
+# Install Apache
 httpd_service 'default' do
-  action [:create, :start]
+  listen_addresses ['127.0.0.1']
+  listen_ports ['81']
+  action [:create, :stop]
 end

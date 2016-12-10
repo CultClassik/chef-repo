@@ -1,26 +1,27 @@
-<VirtualHost *:80>
-  ServerName <%= node['hostname'] %>
-  ServerAdmin 'ops@example.com'
+<VirtualHost *:<%= @port %>>
+  ServerName <%= @serverName %>
+  ServerAlias <% @siteName %>
+  #ServerAdmin 'ops@example.com'
 
-  DocumentRoot <%= node['awesome_customers_ubuntu']['document_root'] %>
+  DocumentRoot <%= @documentRoot %>
   <Directory "/">
           Satisfy Any
           Allow from all
           Options FollowSymLinks
           AllowOverride None
   </Directory>
-  <Directory <%= node['awesome_customers_ubuntu']['document_root'] %> >
+  <Directory <%= @documentRoot %> >
           Options Indexes FollowSymLinks MultiViews
           Satisfy Any
           Allow from all
           AllowOverride None
   </Directory>
 
-  ErrorLog /var/log/apache2/error.log
+  #ErrorLog /var/log/apache2/<%= @siteName %>-error.log
 
   LogLevel warn
 
-  CustomLog /var/log/apache2/access.log combined
+  #CustomLog /var/log/apache2/<%= @siteName %>-access.log #combined
   ServerSignature Off
 
   AddType application/x-httpd-php .php

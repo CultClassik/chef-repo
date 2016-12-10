@@ -24,7 +24,7 @@ node["webserver"]["sites"].each do |siteName, siteParams|
   # create a sample index page for the site
   file "#{documentRoot}/index.php" do
     mode '0755'
-    content "<html>Welcome to website <b>#{siteName}</b> running on <b>#{nodeName}</b></html><?php phpinfo() ?>"
+    content "<html>Welcome to website <b>#{siteName}</b> running on <b>#{nodeName}</b> with <b>Nginx</b>.<p /></html><?php phpinfo() ?>"
   end
 
   # create the vhost config for the site

@@ -11,3 +11,11 @@ default["webserver"]["sites"]["testSite"] = {
   "user" => "testSiteUser",
   "group" => "testSiteGroup"
 }
+
+default["webserver"]["settings"]["apache"]["modules"] = [
+  "proxy", "proxy_fcgi", "rewrite"
+]
+
+default["webserver"]["settings"]["php"]["modules"] = [
+  "xml", "json"
+]

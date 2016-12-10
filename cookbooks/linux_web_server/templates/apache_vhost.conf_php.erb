@@ -1,0 +1,39 @@
+<VirtualHost *:<%= @port %>>
+  ServerName <%= @serverName %>
+  ServerAlias <% @siteName %>
+  #ServerAdmin 'ops@example.com'
+
+  DocumentRoot <%= @documentRoot %>
+  DirectoryIndex index.php index.html
+
+#  <IfModule mod_fastcgi.c>
+#     AddType application/x-httpd-fastphp5 .php
+#     Action application/x-httpd-fastphp5 /php5-fcgi
+#     Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi-<%= @siteName %>
+#     FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi-<%= @siteName %> -socket /var/run/php5-fpm-<%= @siteName %>.sock -pass-header Authorization
+#  </IfModule>
+
+  <Directory "<%= @documentRoot %>">
+    Options +SymLinksIfOwnerMatch
+    AllowOverride AuthConfig FileInfo Indexes Limit Options=Indexes,MultiViews
+    Require all granted
+#    RewriteEngine On
+#      RewriteCond %{REQUEST_FILENAME} !-d
+#      RewriteCond %{REQUEST_FILENAME} !-f
+#      RewriteRule ^ index.php [L].htaccess
+#   ProxyPassMatch "^/myapp/.*\.php(/.*)?$" /usr/lib/cgi-bin/php5-fcgi-<%= @siteName %> enablereuse=on
+#  </Directory>
+
+ <FilesMatch \.php$>
+    #SetHandler "proxy:unix:/var/run/php5-fpm-<%= @siteName%>.sock"
+    SetHandler "proxy:unix:/var/run/php5-fpm-<%= @siteName%>.sock|fcgi://localhost"
+  </FilesMatch>
+
+  #ErrorLog /var/log/apache2/<%= @siteName %>-error.log
+  LogLevel warn
+  #CustomLog /var/log/apache2/<%= @siteName %>-access.log #combined
+  ServerSignature Off
+
+#  AddType application/x-httpd-php .php
+#  AddType application/x-httpd-php-source .phps
+</VirtualHost>
